@@ -1,0 +1,106 @@
+$circleSize: 50px;
+$circleColor: #3498db; 
+
+$circleSize: 30px;
+$circleColor: #3498db; 
+
+.loading-circle {
+  width: $circleSize;
+  height: $circleSize;
+  border: 4px solid rgba(255, 255, 255, 0.3); 
+  border-top: 4px solid $circleColor; 
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.submit-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 7rem;
+  height: 4.5rem;
+  background-color: #3498db; 
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease-in-out;
+
+  &.loading::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+    z-index: 1;
+  }
+
+  &.loading::before {
+    content: "";
+    position: absolute;
+    width: $circleSize;
+    height: $circleSize;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top: 4px solid $circleColor;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    z-index: 2;
+  }
+
+  &:hover {
+    background-color: #2980b9;
+  }
+}
+
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.error-message {
+  background-color: #ff0000;
+  font-size: 1.5rem;
+  margin-top: 20px;
+  padding: 0.1rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+.text-red {
+  color: #ff0000;
+}
+.error-message p {
+  color: #ffffff;
+}
+.error-icon {
+  margin-right: 10px;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+$disabled-option-styles: (
+  font-weight: 700,
+  color: #130f29,
+);
+
+option:disabled {
+  @each $property, $value in $disabled-option-styles {
+    #{$property}: $value;
+  }
+}
