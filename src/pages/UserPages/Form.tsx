@@ -87,7 +87,11 @@ export const UserForm: React.FC<Props> = ({
       <Snackbar
         open={seedMutation.isSuccess || seedMutation.isError}
         title="Seeding"
-        message={seedMutation.isSuccess ? "Seeding sectores success" : "Seeding sectores Failed"}
+        message={
+          seedMutation.isSuccess
+            ? "Seeding sectores success"
+            : "Seeding sectores Failed"
+        }
         handleClose={() => console.log("Close Snackbar")}
         variant={seedMutation.isSuccess ? "success" : "error"}
       />
@@ -95,7 +99,7 @@ export const UserForm: React.FC<Props> = ({
         <div className="">
           <label
             htmlFor="name"
-            className="block mb-1 text-sm font-medium text-white"
+            className="block mb-1 text-sm font-medium text-gray-500"
           >
             Name
           </label>
@@ -143,7 +147,7 @@ export const UserForm: React.FC<Props> = ({
           />
           <label
             htmlFor="checked-checkbox"
-            className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+            className="ms-2 text-sm font-semibold text-gray-500 dark:text-gray-300"
           >
             Agree to Terms
           </label>
@@ -151,7 +155,7 @@ export const UserForm: React.FC<Props> = ({
 
         <button
           type="submit"
-          className=" inline-flex items-center justify-center px-4 py-2 mt-5 text-base font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          className=" inline-flex items-center justify-center px-4 py-2 mt-5 text-base font-medium text-gray-200 bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
           disabled={createMutation.isLoading || updateMutation.isLoading}
         >
           {createMutation.isLoading || updateMutation.isLoading ? (

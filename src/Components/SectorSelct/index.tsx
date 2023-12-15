@@ -9,10 +9,13 @@ interface Props {
 }
 
 export const SectorSelect: FC<Props> = ({ field }): JSX.Element => {
-  const { isLoading, error, data } = useQuery("sectors", sectorServices.getAllSectors);
+  const { isLoading, error, data } = useQuery(
+    "sectors",
+    sectorServices.getAllSectors
+  );
 
-  if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>Error fetching data</div>;
+  if (isLoading) return <div>Loading sectors ...</div>;
+  if (error) return <p className="bg-red-500 p-2 text-gray-500">Error fetching data</p>;
 
   const renderOptions = (items: any, parentId = null, depth = 0) => {
     const filteredItems = items.filter(
@@ -50,7 +53,7 @@ export const SectorSelect: FC<Props> = ({ field }): JSX.Element => {
     <div>
       <label
         htmlFor="sector"
-        className="block mb-1 text-sm font-medium text-white"
+        className="block mb-1 text-sm font-medium text-gray-500"
       >
         Sector
       </label>
