@@ -5,7 +5,7 @@ interface TableRowProps {
 }
 
 const TableRow: FC<TableRowProps> = ({ children }) => {
-  return <tr className="bg-gray-100">{children}</tr>;
+  return <tr className="bg-gray-100 text-gray-500">{children}</tr>;
 };
 
 export default TableRow;
